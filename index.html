@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f2">
+  <meta name="description" content="????????????????????">
+  <title>???? ? ?????</title>
+  <style>
+    :root{color-scheme:light;--ink:#242820;--muted:#82857c;--paper:#f7f6f2;--white:#fff;--line:#eeeee8;--green:#66745b;--green-light:#edf0e9;--shadow:0 16px 45px rgba(40,43,33,.055)}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif;-webkit-font-smoothing:antialiased}
+    button,input,textarea{font:inherit}
+    .topbar{height:74px;padding:0 7.2%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(36,40,32,.07)}
+    .brand{display:flex;align-items:center;gap:11px;font-size:15px;font-weight:700;letter-spacing:.04em}.brand-mark{width:31px;height:31px;display:grid;place-items:center;border-radius:10px;color:#fff;background:var(--green);font-size:17px}.top-note{color:var(--muted);font-size:12px;letter-spacing:.1em}
+    main{width:min(1070px,calc(100% - 48px));margin:0 auto;padding:67px 0 80px}.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:38px}.eyebrow{margin:0 0 12px;color:var(--green);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase}h1{margin:0;font-size:clamp(31px,5vw,43px);font-weight:650;letter-spacing:.035em;line-height:1.2}.date{margin:12px 0 0;color:var(--muted);font-size:14px;letter-spacing:.035em}.day-badge{flex:none;display:flex;align-items:center;gap:10px;padding:11px 16px;border:1px solid #e9e9e2;border-radius:30px;background:rgba(255,255,255,.66);color:#5e6357;font-size:12px}.day-dot{width:7px;height:7px;border-radius:50%;background:#8b9a7c}
+    .layout{display:grid;grid-template-columns:1.12fr .88fr;gap:21px;align-items:start}.left-column,.right-column{display:grid;gap:21px}.card{padding:27px 28px;border:1px solid rgba(36,40,32,.055);border-radius:16px;background:var(--white);box-shadow:var(--shadow)}.card-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}.heading-label{display:flex;align-items:center;gap:10px}.heading-icon{width:31px;height:31px;display:grid;place-items:center;border-radius:10px;background:var(--green-light);color:var(--green);font-size:15px}h2{margin:0;font-size:16px;font-weight:650;letter-spacing:.025em}.count{padding:5px 9px;border-radius:20px;background:#f5f5f1;color:var(--muted);font-size:11px}
+    .schedule-list{display:grid}.schedule-item{min-width:0;display:grid;grid-template-columns:61px minmax(0,1fr) auto auto 9px;gap:10px;align-items:center;padding:16px 0;border-top:1px solid var(--line)}.schedule-item:first-child{padding-top:2px;border-top:0}.time{color:var(--green);font-size:13px;font-weight:650;font-variant-numeric:tabular-nums}.event-title{margin:0;font-size:13px;font-weight:650;line-height:1.5;overflow-wrap:anywhere}.event-note{margin:4px 0 0;color:var(--muted);font-size:11px;line-height:1.5;overflow-wrap:anywhere}.event-dot{width:8px;height:8px;border-radius:50%;background:#d9a17e}
+    .item-action{flex:none;padding:5px 8px;border:1px solid #e9eae3;border-radius:7px;background:#fff;color:#73776d;font-size:10px;cursor:pointer}.item-action:hover{border-color:#cbd2c3;color:var(--green);background:#f7f8f4}.item-action:focus-visible,.inline-add-form button:focus-visible{outline:3px solid #aebba2;outline-offset:2px}.event-actions{display:none;gap:5px}.schedule-item.is-active .event-actions{display:flex}.event-delete{color:#926e61}.task-row{position:relative}.task-row .task-name{flex:1}.task-row.is-active .task-delete,.task-row.is-active .task-edit{display:inline-flex}.task-delete,.task-edit{display:none}.inline-add-form{display:flex;gap:8px;margin-top:13px}.inline-add-form input{min-width:0;flex:1;padding:10px 11px;border:1px solid #eaeae4;border-radius:8px;outline:none;background:#fdfdfb;font-size:12px}.inline-add-form input:focus{border-color:#9ca78f;box-shadow:0 0 0 3px rgba(102,116,91,.09)}.inline-add-form button{flex:none;padding:0 13px;border:0;border-radius:8px;background:var(--green);color:#fff;font-size:11px;font-weight:650;cursor:pointer}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.edit-dialog{width:min(420px,calc(100% - 32px));padding:25px;border:1px solid #eeeee8;border-radius:15px;background:#fff;color:var(--ink);box-shadow:0 20px 60px rgba(30,34,27,.2)}.edit-dialog::backdrop{background:rgba(25,29,23,.35);backdrop-filter:blur(2px)}.edit-dialog h2{margin:0 0 20px}.edit-fields{display:grid;gap:14px}.edit-dialog-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:22px}.edit-dialog-actions button{padding:9px 14px;border:1px solid #e9eae3;border-radius:8px;background:#fff;color:var(--ink);font-size:12px;cursor:pointer}.edit-dialog-actions button[type=submit]{border-color:var(--green);background:var(--green);color:#fff}.schedule-item{grid-template-columns:61px minmax(0,1fr) auto 9px}.schedule-item:nth-child(2) .event-dot{background:#9ca786}.schedule-item:nth-child(3) .event-dot{background:#d1bb78}
+    .task-progress{color:var(--muted);font-size:11px;white-space:nowrap}.task-list{display:grid;gap:9px}.task-row{min-width:0;min-height:50px;display:flex;align-items:center;gap:11px;padding:11px 12px;border:1px solid #f0f0eb;border-radius:11px;transition:background .2s,border-color .2s}.task-row:hover{border-color:#e5e8df;background:#fdfdfb}.task-check{position:relative;width:18px;height:18px;flex:none;margin:0;appearance:none;border:1.5px solid #d9dcd3;border-radius:6px;cursor:pointer}.task-check:checked{border-color:var(--green);background:var(--green)}.task-check:checked::after{position:absolute;top:1px;left:5px;width:5px;height:9px;transform:rotate(45deg);border:solid #fff;border-width:0 2px 2px 0;content:""}.task-name{min-width:0;flex:1;color:#40443c;font-size:12px;line-height:1.5;overflow-wrap:anywhere}.task-check:checked+.task-name{color:#a4a69f;text-decoration:line-through}.task-status{flex:none;padding:4px 8px;border-radius:20px;background:#f4f4ef;color:#81847b;font-size:10px}.task-check:checked~.task-status{background:var(--green-light);color:var(--green)}
+    .form-intro{margin:-12px 0 19px;color:var(--muted);font-size:11px;line-height:1.6}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 12px}.field{min-width:0;display:grid;gap:7px}.field.full{grid-column:1/-1}.field label{color:#666a60;font-size:11px;font-weight:600}.field input,.field textarea{width:100%;min-width:0;padding:10px 11px;border:1px solid #eaeae4;border-radius:8px;outline:none;background:#fdfdfb;color:var(--ink);font-size:12px;transition:border-color .2s,box-shadow .2s}.field input:focus,.field textarea:focus{border-color:#9ca78f;box-shadow:0 0 0 3px rgba(102,116,91,.09)}.field input::placeholder,.field textarea::placeholder{color:#b0b1a9}.field textarea{min-height:62px;resize:vertical}.submit-button{width:100%;margin-top:17px;padding:11px 14px;border:0;border-radius:9px;background:var(--green);color:white;font-size:12px;font-weight:650;cursor:pointer;transition:background .2s,transform .2s}.submit-button:hover{transform:translateY(-1px);background:#57664c}.submit-button:focus-visible,.task-check:focus-visible{outline:3px solid #aebba2;outline-offset:3px}.toast{position:fixed;right:24px;bottom:24px;z-index:2;max-width:calc(100vw - 32px);padding:12px 17px;transform:translateY(12px);border-radius:10px;background:#30392d;color:white;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}.toast.visible{transform:translateY(0);opacity:1}footer{padding-top:30px;color:#a0a197;text-align:center;font-size:10px;letter-spacing:.08em}
+    @media(max-width:720px){.topbar{height:64px;padding:0 21px}.top-note{font-size:10px;letter-spacing:.04em}main{width:min(calc(100% - 32px),520px);padding:42px 0 55px}.hero{align-items:flex-start;margin-bottom:25px}.day-badge{gap:7px;padding:9px 11px;font-size:10px}.layout{grid-template-columns:minmax(0,1fr);gap:16px}.left-column,.right-column{gap:16px}.card{padding:22px 20px}.schedule-item{grid-template-columns:54px minmax(0,1fr) auto 8px;gap:10px}.schedule-item.is-active{grid-template-columns:54px minmax(0,1fr) 8px}.schedule-item.is-active .event-actions{grid-column:2/-1;justify-content:flex-end}.task-row.is-active{flex-wrap:wrap}.task-row.is-active .task-edit,.task-row.is-active .task-delete{margin-left:auto}}
+    @media(max-width:390px){.topbar{padding:0 16px}.brand{gap:8px;font-size:13px}.top-note{max-width:100px;text-align:right;line-height:1.5}main{width:calc(100% - 28px);padding-top:35px}.hero{flex-direction:column;gap:14px}h1{font-size:34px}.day-badge{align-self:flex-start}.card{padding:20px 17px}.schedule-item{grid-template-columns:48px minmax(0,1fr) auto 8px;gap:6px}.event-edit{padding:5px 6px}.form-grid{gap:12px 9px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <header class="topbar"><div class="brand"><span class="brand-mark" aria-hidden="true">日</span><span>日常清單</span></div><span class="top-note">把日子，過得剛剛好</span></header>
+  <main>
+    <section class="hero" aria-labelledby="page-title"><div><p class="eyebrow">YOUR DAILY PLANNER</p><h1 id="page-title">今天的安排</h1><p class="date" id="today-date" aria-live="polite"></p></div><div class="day-badge"><span class="day-dot" aria-hidden="true"></span><span>給今天留一點從容</span></div></section>
+    <div class="layout">
+      <div class="left-column">
+        <section class="card" aria-labelledby="schedule-heading"><div class="card-heading"><div class="heading-label"><span class="heading-icon" aria-hidden="true">◷</span><h2 id="schedule-heading">今日行程</h2></div><span class="count" id="schedule-count">03 個安排</span></div>
+          <div class="schedule-list" id="schedule-list" aria-live="polite">
+            <article class="schedule-item"><time class="time" datetime="09:00">09:00</time><div><h3 class="event-title">晨間咖啡與閱讀</h3><p class="event-note">慢慢開始，為自己充電</p></div><div class="event-actions"><button class="item-action event-edit" type="button" aria-label="編輯晨間咖啡與閱讀">編輯</button><button class="item-action event-delete" type="button" aria-label="刪除晨間咖啡與閱讀">刪除</button></div><span class="event-dot" aria-hidden="true"></span></article>
+            <article class="schedule-item"><time class="time" datetime="13:30">13:30</time><div><h3 class="event-title">專案進度討論</h3><p class="event-note">與團隊同步這週的方向</p></div><div class="event-actions"><button class="item-action event-edit" type="button" aria-label="編輯專案進度討論">編輯</button><button class="item-action event-delete" type="button" aria-label="刪除專案進度討論">刪除</button></div><span class="event-dot" aria-hidden="true"></span></article>
+            <article class="schedule-item"><time class="time" datetime="18:00">18:00</time><div><h3 class="event-title">下班後散步</h3><p class="event-note">去公園走走，透透氣</p></div><div class="event-actions"><button class="item-action event-edit" type="button" aria-label="編輯下班後散步">編輯</button><button class="item-action event-delete" type="button" aria-label="刪除下班後散步">刪除</button></div><span class="event-dot" aria-hidden="true"></span></article>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="tasks-heading"><div class="card-heading"><div class="heading-label"><span class="heading-icon" aria-hidden="true">✓</span><h2 id="tasks-heading">待辦事項</h2></div><span class="task-progress" id="task-progress" aria-live="polite">已完成 1 / 3</span></div>
+          <div class="task-list" id="task-list">
+            <label class="task-row"><input class="task-check" type="checkbox" checked><span class="task-name">回覆客戶的電子郵件</span><span class="task-status">已完成</span><button class="item-action task-edit" type="button" aria-label="編輯回覆客戶的電子郵件">編輯</button><button class="item-action task-delete" type="button" aria-label="刪除回覆客戶的電子郵件">刪除</button></label>
+            <label class="task-row"><input class="task-check" type="checkbox"><span class="task-name">整理本週會議筆記</span><span class="task-status">未完成</span><button class="item-action task-edit" type="button" aria-label="編輯整理本週會議筆記">編輯</button><button class="item-action task-delete" type="button" aria-label="刪除整理本週會議筆記">刪除</button></label>
+            <label class="task-row"><input class="task-check" type="checkbox"><span class="task-name">準備明天的簡報資料</span><span class="task-status">未完成</span><button class="item-action task-edit" type="button" aria-label="編輯準備明天的簡報資料">編輯</button><button class="item-action task-delete" type="button" aria-label="刪除準備明天的簡報資料">刪除</button></label>
+          </div>
+          <form class="inline-add-form" id="task-form"><label class="sr-only" for="task-input">新增待辦事項</label><input id="task-input" name="task" type="text" placeholder="輸入新的待辦事項…" maxlength="80" required><button type="submit">＋ 新增</button></form>
+        </section>
+      </div>
+      <div class="right-column">
+        <section class="card" aria-labelledby="form-heading"><div class="card-heading"><div class="heading-label"><span class="heading-icon" aria-hidden="true">＋</span><h2 id="form-heading">新增行程</h2></div></div>
+          <p class="form-intro">把想做的事記下來，讓今天更有方向。</p>
+          <form id="schedule-form"><div class="form-grid">
+            <div class="field"><label for="event-time">時間</label><input id="event-time" name="time" type="time" required></div>
+            <div class="field"><label for="event-title">行程名稱</label><input id="event-title" name="title" type="text" placeholder="例如：午餐約會" maxlength="60" required></div>
+            <div class="field full"><label for="event-note">備註（選填）</label><textarea id="event-note" name="note" placeholder="補充地點或想記住的事…" maxlength="120"></textarea></div>
+          </div><button class="submit-button" type="submit">＋　加入今日行程</button></form>
+        </section>
+      </div>
+    </div>
+    <footer>留一點空白，給生活的小驚喜。</footer>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog class="edit-dialog" id="edit-dialog" aria-labelledby="edit-dialog-title">
+    <form id="edit-event-form">
+      <h2 id="edit-dialog-title">編輯行程</h2>
+      <div class="edit-fields">
+        <div class="field"><label for="edit-time">時間</label><input id="edit-time" name="time" type="time" required></div>
+        <div class="field"><label for="edit-title">行程名稱</label><input id="edit-title" name="title" type="text" maxlength="60" required></div>
+        <div class="field"><label for="edit-note">備註（選填）</label><textarea id="edit-note" name="note" maxlength="120"></textarea></div>
+      </div>
+      <div class="edit-dialog-actions"><button type="button" id="cancel-edit">取消</button><button type="submit">儲存修改</button></div>
+    </form>
+  </dialog>
+  <script>
+    (()=>{
+      const dateElement=document.getElementById('today-date');
+      dateElement.textContent=new Intl.DateTimeFormat('zh-TW',{year:'numeric',month:'long',day:'numeric',weekday:'long'}).format(new Date());
+      const taskList=document.getElementById('task-list');
+      const taskProgress=document.getElementById('task-progress');
+      function updateTaskProgress(){const checks=[...taskList.querySelectorAll('.task-check')];const done=checks.filter(check=>check.checked).length;taskProgress.textContent=`已完成 ${done} / ${checks.length}`;checks.forEach(check=>{check.closest('.task-row').querySelector('.task-status').textContent=check.checked?'已完成':'未完成'})}
+      taskList.addEventListener('change',updateTaskProgress);
+      const form=document.getElementById('schedule-form');
+      const scheduleList=document.getElementById('schedule-list');
+      const scheduleCount=document.getElementById('schedule-count');
+      const toast=document.getElementById('toast');
+      const scheduleForm=document.getElementById('schedule-form');
+      let toastTimer;
+      function showToast(message){toast.textContent=message;toast.classList.add('visible');window.clearTimeout(toastTimer);toastTimer=window.setTimeout(()=>toast.classList.remove('visible'),2600)}
+      function makeScheduleItem(time,title,note=''){
+        const item=document.createElement('article');item.className='schedule-item';
+        const timeElement=document.createElement('time');timeElement.className='time';timeElement.dateTime=time;timeElement.textContent=time;
+        const details=document.createElement('div');const titleElement=document.createElement('h3');titleElement.className='event-title';titleElement.textContent=title;details.append(titleElement);
+        if(note){const noteElement=document.createElement('p');noteElement.className='event-note';noteElement.textContent=note;details.append(noteElement)}
+        const actions=document.createElement('div');actions.className='event-actions';
+        const editButton=document.createElement('button');editButton.className='item-action event-edit';editButton.type='button';editButton.textContent='編輯';editButton.setAttribute('aria-label',`編輯${title}`);
+        const deleteButton=document.createElement('button');deleteButton.className='item-action event-delete';deleteButton.type='button';deleteButton.textContent='刪除';deleteButton.setAttribute('aria-label',`刪除${title}`);actions.append(editButton,deleteButton);
+        const dot=document.createElement('span');dot.className='event-dot';dot.setAttribute('aria-hidden','true');item.append(timeElement,details,actions,dot);return item;
+      }
+      form.addEventListener('submit',event=>{
+        event.preventDefault();if(!form.reportValidity())return;
+        const data=new FormData(form);const time=String(data.get('time'));const title=String(data.get('title')).trim();const note=String(data.get('note')).trim();if(!title)return;
+        scheduleList.append(makeScheduleItem(time,title,note));sortSchedule();scheduleForm.reset();showToast('行程已加入今日安排');
+      });
+
+      const taskForm=document.getElementById('task-form');
+      const taskInput=document.getElementById('task-input');
+      function createTaskRow(name,checked=false){
+        const row=document.createElement('label');row.className='task-row';
+        const checkbox=document.createElement('input');checkbox.className='task-check';checkbox.type='checkbox';checkbox.checked=checked;
+        const label=document.createElement('span');label.className='task-name';label.textContent=name;
+        const status=document.createElement('span');status.className='task-status';status.textContent=checked?'已完成':'未完成';
+        const edit=document.createElement('button');edit.className='item-action task-edit';edit.type='button';edit.textContent='編輯';edit.setAttribute('aria-label',`編輯${name}`);
+        const remove=document.createElement('button');remove.className='item-action task-delete';remove.type='button';remove.textContent='刪除';remove.setAttribute('aria-label',`刪除${name}`);
+        row.append(checkbox,label,status,edit,remove);return row;
+      }
+      taskForm.addEventListener('submit',event=>{
+        event.preventDefault();if(!taskForm.reportValidity())return;
+        const name=taskInput.value.trim();if(!name)return;
+        taskList.append(createTaskRow(name));taskInput.value='';updateTaskProgress();showToast('待辦事項已新增');
+      });
+      taskList.addEventListener('click',event=>{
+        const button=event.target.closest('.task-edit,.task-delete');
+        if(button){
+          event.preventDefault();
+          const row=button.closest('.task-row');
+          if(button.matches('.task-delete')){row.remove();updateTaskProgress();showToast('待辦事項已刪除');return;}
+          const label=row.querySelector('.task-name');
+          const replacement=window.prompt('編輯待辦事項',label.textContent);
+          if(replacement===null)return;
+          const name=replacement.trim();if(!name){showToast('待辦事項不能留白');return;}
+          label.textContent=name;row.querySelector('.task-edit').setAttribute('aria-label',`編輯${name}`);row.querySelector('.task-delete').setAttribute('aria-label',`刪除${name}`);showToast('待辦事項已更新');return;
+        }
+        const row=event.target.closest('.task-row');if(row){taskList.querySelectorAll('.task-row.is-active').forEach(item=>item.classList.remove('is-active'));row.classList.add('is-active');}
+      });
+      document.addEventListener('click',event=>{
+        if(!event.target.closest('.task-row'))taskList.querySelectorAll('.task-row.is-active').forEach(row=>row.classList.remove('is-active'));
+        if(!event.target.closest('.schedule-item'))scheduleList.querySelectorAll('.schedule-item.is-active').forEach(item=>item.classList.remove('is-active'));
+      });
+
+      const editDialog=document.getElementById('edit-dialog');
+      const editForm=document.getElementById('edit-event-form');
+      const editTime=document.getElementById('edit-time');
+      const editTitle=document.getElementById('edit-title');
+      const editNote=document.getElementById('edit-note');
+      let editingItem=null;
+      function sortSchedule(){
+        const items=[...scheduleList.querySelectorAll('.schedule-item')].sort((a,b)=>a.querySelector('time').dateTime.localeCompare(b.querySelector('time').dateTime));
+        items.forEach(item=>scheduleList.append(item));
+        scheduleCount.textContent=`${String(items.length).padStart(2,'0')} 個安排`;
+      }
+      scheduleList.addEventListener('click',event=>{
+        const deleteButton=event.target.closest('.event-delete');
+        if(deleteButton){deleteButton.closest('.schedule-item').remove();sortSchedule();showToast('行程已刪除');return;}
+        const button=event.target.closest('.event-edit');
+        if(!button){const selected=event.target.closest('.schedule-item');if(selected){scheduleList.querySelectorAll('.schedule-item.is-active').forEach(item=>item.classList.remove('is-active'));selected.classList.add('is-active');}return;}
+        editingItem=button.closest('.schedule-item');
+        editTime.value=editingItem.querySelector('time').dateTime;
+        editTitle.value=editingItem.querySelector('.event-title').textContent;
+        editNote.value=editingItem.querySelector('.event-note')?.textContent||'';
+        editDialog.showModal();editTitle.focus();
+      });
+      document.getElementById('cancel-edit').addEventListener('click',()=>editDialog.close());
+      editForm.addEventListener('submit',event=>{
+        event.preventDefault();if(!editForm.reportValidity()||!editingItem)return;
+        const title=editTitle.value.trim();if(!title){editTitle.focus();return;}
+        const timeElement=editingItem.querySelector('time');timeElement.dateTime=editTime.value;timeElement.textContent=editTime.value;
+        editingItem.querySelector('.event-title').textContent=title;
+        const note=editNote.value.trim();let noteElement=editingItem.querySelector('.event-note');
+        if(note){if(!noteElement){noteElement=document.createElement('p');noteElement.className='event-note';editingItem.querySelector('div').append(noteElement);}noteElement.textContent=note;}
+        else if(noteElement)noteElement.remove();
+        const button=editingItem.querySelector('.event-edit');button.setAttribute('aria-label',`編輯${title}`);
+        sortSchedule();editDialog.close();showToast('行程已更新');editingItem=null;
+      });
+      sortSchedule();
+    })();
+  </script>
+</body>
+</html>
